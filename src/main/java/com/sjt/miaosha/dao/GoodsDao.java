@@ -21,7 +21,7 @@ public interface GoodsDao {
 			+ "from s_goods sg left join goods g on sg.goods_id=g.id where g.id = #{goodsId}")
 	public GoodsVo getGoodsVoByGoodsId(@Param("goodsId") long goodsId);
 
-	//此处需要乐观锁吧需要？？？？？？ 我觉得
+	//此处需要乐观锁吧需要？？？？？？ 我觉得需要
 	@Update("update s_goods set stock_count = stock_count - 1 where goods_id = #{goodsId} and stock_count > 0")
 	public int reduceStock(@Param("goodsId") long goodsId);
 
